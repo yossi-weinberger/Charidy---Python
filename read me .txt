@@ -1,0 +1,4 @@
+this program whill help to calculate the amunt of charity (10%)
+class 1 is income
+
+class 2 is charity
