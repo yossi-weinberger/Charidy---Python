@@ -1,13 +1,13 @@
 import income
 import donation
-from flask import Flask, render_template, request, flash
+# from flask import Flask, render_template, request, flash
 
-app = Flask(__name__)
-
-
-@app.route("/tithe")
-def index():
-    return render_template("index.html")
+# app = Flask(__name__)
+#
+#
+# @app.route("/tithe")
+# def index():
+#     return render_template("index.html")
 
 
 def new_income_line():
@@ -25,5 +25,5 @@ def new_donation_line():
     print(new_donation)
 
 
-# new_donation_line()
-new_income_line()
+new_donation_line()
+# new_income_line()

@@ -1,16 +1,22 @@
 from datetime import datetime
-from pymongo import MongoClient
+from mongo_config import client
 
 
-client = MongoClient("localhost", 27017)
+# client = MongoClient("localhost", 27017)
 db = client.charidy
 income_collection = db.income_collection
 total_tithe_collection = db.total_tithe_collection
 
 
 class Income:
-    total_tithe = total_tithe_collection.find_one({"total": {"$exists": True}})['total']
-    print(total_tithe)
+    # total_tithe = total_tithe_collection.find_one({"total": {"$exists": True}})['total']
+    # print(total_tithe)
+    document = total_tithe_collection.find_one()
+    if document is None:
+        total_tithe = 0
+        total_tithe_collection.insert_one({"total": total_tithe})
+    else:
+        total_tithe = document.get('total', 0)
 
     def __init__(self):
         self.description = input("Type the income description: ")
